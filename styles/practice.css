@@ -66,7 +66,7 @@ body {
     margin-right: 0;
   }
 }
-.fancy-btn {
+.fancy_btn {
   background-color: #915de6;
   color: #000;
   padding: 0.5rem;
@@ -78,14 +78,14 @@ body {
   cursor: pointer;
 }
 
-.fancy-btn:hover {
+.fancy_btn:hover {
   background-color: #000;
   color: #915de6;
-  -webkit-animation: fancy-btn 0.5s ease-in-out infinite alternate;
-          animation: fancy-btn 0.5s ease-in-out infinite alternate;
+  -webkit-animation: fancy_btn 0.5s ease-in-out infinite alternate;
+          animation: fancy_btn 0.5s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes fancy-btn {
+@-webkit-keyframes fancy_btn {
   0% {
     transform: scale(1);
   }
@@ -94,7 +94,7 @@ body {
   }
 }
 
-@keyframes fancy-btn {
+@keyframes fancy_btn {
   0% {
     transform: scale(1);
   }

@@ -195,7 +195,7 @@ body {
 }
 
 // fancy button styles
-.fancy-btn {
+.fancy_btn {
   background-color: $tertiary-background-color;
   color: $secondary-background-color;
   padding: $secondary-padding;
@@ -206,13 +206,13 @@ body {
   font-weight: $secondary-font-weight;
   cursor: pointer;
 }
-.fancy-btn:hover {
+.fancy_btn:hover {
   background-color: $secondary-background-color;
   color: $tertiary-background-color;
-  animation: fancy-btn 0.5s ease-in-out infinite alternate;
+  animation: fancy_btn 0.5s ease-in-out infinite alternate;
 }
 // fancy button animation
-@keyframes fancy-btn {
+@keyframes fancy_btn {
   0% {
     transform: scale(1);
   }
@@ -367,10 +367,12 @@ body {
   font-weight: $primary-font-weight;
   letter-spacing: 0.4rem;
 }
+// change select option color
 ::selection {
   background-color: $primary-background-color;
   color: $secondary-background-color;
 }
+// create custom crollbar
 ::-webkit-scrollbar {
   width: 1rem;
 }
