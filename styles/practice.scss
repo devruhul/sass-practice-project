@@ -237,6 +237,7 @@ body {
     @extend %flex_element;
     flex-direction: column;
     gap: 1rem;
+    text-align: left;
   }
   .btn_container {
     @extend %flex_element;
@@ -300,8 +301,8 @@ body {
   box-shadow: 0 0 1px rgba($theme, 0.25);
   color: #fff;
 }
-.info {
-  @include theme;
+.fancy_btn {
+  @include theme($theme: darkred);
 }
 .alert {
   @include theme($theme: DarkRed);
@@ -362,7 +363,7 @@ body {
 .text-center {
   text-align: $text-center;
   margin-top: 2rem;
-  color: skyblue;
+  color: rgb(148, 92, 238);
   font-size: 2rem;
   font-weight: $primary-font-weight;
   letter-spacing: 0.4rem;

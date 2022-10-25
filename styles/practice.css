@@ -117,6 +117,7 @@ body {
   color: #fff;
   flex-direction: column;
   gap: 1rem;
+  text-align: left;
 }
 .banner_container .btn_container {
   gap: 1rem;
@@ -168,9 +169,9 @@ body {
     width: 100%;
   }
 }
-.info {
-  background: darkGray;
-  box-shadow: 0 0 1px rgba(169, 169, 169, 0.25);
+.fancy_btn {
+  background: darkred;
+  box-shadow: 0 0 1px rgba(139, 0, 0, 0.25);
   color: #fff;
 }
 
@@ -228,7 +229,7 @@ body {
 .text-center {
   text-align: center;
   margin-top: 2rem;
-  color: skyblue;
+  color: rgb(148, 92, 238);
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.4rem;
