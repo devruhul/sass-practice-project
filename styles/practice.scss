@@ -1,3 +1,7 @@
+// use partials file _index.scss by using @use rule
+
+@import "partials/main";
+
 // reset css code
 * {
   padding: 0;
@@ -169,10 +173,13 @@ body {
           text-decoration: $primary-text-decoration;
           font-size: $primary-font-size;
           font-weight: $secondary-font-weight;
+          transition: .4s ease-in-out;
+          padding: $secondary-padding;
+          border-radius: $primary-border-radius;
         }
         // style for nav menu list link hover
         a:hover {
-          color: $secondary-background-color;
+          background-color: $secondary-background-color;
         }
       }
     }
@@ -320,6 +327,7 @@ body {
     @extend %flex_element;
     flex-direction: column;
     gap: 1rem;
+    transition: .4s ease-in-out;
     .service_icon {
       font-size: 3rem;
     }
@@ -332,6 +340,7 @@ body {
       font-size: $secondary-font-size;
       font-weight: $secondary-font-weight;
       text-align: $text-center;
+      color: $text-colour;
     }
   }
   .service:hover {
