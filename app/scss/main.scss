@@ -1,124 +1,5 @@
-// use partials file _index.scss by using @use rule
-
-@import "partials/main";
-
-// reset css code
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-// declare color variables
-$primary-color: #51e9de;
-$secondary-color: #0f0;
-$tertiary-color: #00f;
-// declare font variables
-$primary-font: "Roboto", sans-serif;
-$secondary-font: "Lato", sans-serif;
-// declare font-size variables
-$primary-font-size: 1.5rem;
-$secondary-font-size: 1.2rem;
-$tertiary-font-size: 1rem;
-// declare font-weight variables
-$primary-font-weight: 700;
-$secondary-font-weight: 500;
-$tertiary-font-weight: 300;
-// declare line-height variables
-$primary-line-height: 1.5;
-$secondary-line-height: 1.2;
-$tertiary-line-height: 1;
-// declare letter-spacing variables
-$primary-letter-spacing: 0.1rem;
-$secondary-letter-spacing: 0.05rem;
-$tertiary-letter-spacing: 0.01rem;
-// declare border variables
-$primary-border: 1px solid #000;
-$secondary-border: 1px solid #fff;
-$tertiary-border: 1px solid #f00;
-// declare border-radius variables
-$primary-border-radius: 0.5rem;
-$secondary-border-radius: 0.3rem;
-$tertiary-border-radius: 0.1rem;
-// declare padding variables
-$primary-padding: 1rem;
-$secondary-padding: 0.5rem;
-$tertiary-padding: 0.1rem;
-// declare margin variables
-$primary-margin: 1rem;
-$secondary-margin: 0.5rem;
-$tertiary-margin: 0.1rem;
-// declare width variables
-$primary-width: 100%;
-$secondary-width: 50%;
-$tertiary-width: 25%;
-// declare height variables
-$primary-height: 100%;
-$secondary-height: 50%;
-$tertiary-height: 25%;
-// declare background-color variables
-$primary-background-color: #fff;
-$secondary-background-color: #000;
-$tertiary-background-color: #915de6;
-// declare background-image variables
-$primary-background-image: linear-gradient(
-  to right bottom,
-  #051937,
-  #004d7a,
-  #008793,
-  #00bf72,
-  #a8eb12
-);
-$secondary-background-image: url("https://images.unsplash.com/photo-1581084512539-8b1b0b2b1b1c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
-$tertiary-background-image: url("https://images.unsplash.com/photo-1581084512539-8b1b0b2b1b1c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
-// declare background-size variables
-$primary-background-size: cover;
-$secondary-background-size: contain;
-$tertiary-background-size: 100% 100%;
-// declare background-position variables
-$primary-background-position: center;
-$secondary-background-position: top;
-$tertiary-background-position: bottom;
-// declare background-repeat variables
-$primary-background-repeat: no-repeat;
-$secondary-background-repeat: repeat;
-$tertiary-background-repeat: repeat-x;
-// declare background-attachment variables
-$primary-background-attachment: fixed;
-$secondary-background-attachment: scroll;
-$tertiary-background-attachment: local;
-// declare background variables
-$primary-background: $primary-background-color $primary-background-image
-  $primary-background-size $primary-background-position
-  $primary-background-repeat $primary-background-attachment;
-
-// declare box-shadow variables
-$primary-box-shadow: 0 0 1rem #000;
-$secondary-box-shadow: 0 0 0.5rem #fff;
-$tertiary-box-shadow: 0 0 0.1rem #f00;
-// declare text-align variables
-$primary-text-align: center;
-$secondary-text-align: left;
-$tertiary-text-align: right;
-// declare text-decoration variables
-$primary-text-decoration: none;
-$secondary-text-decoration: underline;
-$tertiary-text-decoration: line-through;
-// declare text-transform variables
-$primary-text-transform: uppercase;
-$secondary-text-transform: lowercase;
-$tertiary-text-transform: capitalize;
-// declare text-shadow variables
-$primary-text-shadow: 0 0 1rem #000;
-$secondary-text-shadow: 0 0 0.5rem #fff;
-$tertiary-text-shadow: 0 0 0.1rem #f00;
-// declare text-overflow variables
-$primary-text-overflow: clip;
-$secondary-text-overflow: ellipsis;
-$tertiary-text-overflow: fade;
-// declare text-indent variables
-$primary-text-indent: 1rem;
-$secondary-text-indent: 0.5rem;
-$tertiary-text-indent: 0.1rem;
+@use "partials/base";
+@import "partials/variables";
 // flex items
 %flex_element {
   display: flex;
@@ -132,7 +13,7 @@ $tertiary-text-indent: 0.1rem;
   grid-gap: 1rem;
 }
 // common styles
-$text-center: center;
+$center_text: center;
 
 // style for body
 body {
@@ -166,7 +47,7 @@ body {
       // style for nav menu list
       li {
         list-style: none;
-        margin-right: 20px;
+        margin-right: 2rem;
         // style for nav menu list link
         a {
           color: $primary-background-color;
@@ -187,15 +68,17 @@ body {
 }
 
 // responsive navbar for mobile
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 780px) {
   .navbar {
     flex-direction: column;
     .navbar_end {
+      margin: 1rem 0;
       ul {
         flex-direction: column;
-        li {
-          margin-right: 0;
-        }
+        gap: 1.5rem;
+      }
+      li {
+        margin-right: 0 !important;
       }
     }
   }
@@ -253,37 +136,44 @@ body {
   .banner_right {
     width: 50%;
     padding: $primary-padding;
+    img {
+      transition: 0.4s ease-in;
+      filter: grayscale(100%);
+    }
+    img:hover {
+      transform: scale(0.9);
+      filter: grayscale(0%);
+    }
   }
-  // media query for banner section in laptop
-  @media screen and (max-width: 1024px) {
+}
+// media query for banner section in laptop
+@media screen and (max-width: 1024px) {
+  .banner_left {
+    width: 100%;
+  }
+  .banner_right {
+    width: 100%;
+  }
+}
+
+// media query for banner section in tablet
+@media screen and (max-width: 768px) {
+  .banner_container {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     .banner_left {
       width: 100%;
     }
     .banner_right {
       width: 100%;
     }
-  }
-
-  // media query for banner section in tablet
-  @media screen and (max-width: 768px) {
-    .banner_container {
-      height: 100%;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      .banner_left {
-        width: 100%;
-      }
-      .banner_right {
-        width: 100%;
-      }
-      .banner_img {
-        width: 100%;
-      }
+    .banner_img {
+      width: 100%;
     }
   }
 }
-
 // media query for banner section in mobile
 @media screen and (max-width: 425px) {
   .banner_container {
@@ -339,13 +229,12 @@ body {
     .service_desc {
       font-size: $secondary-font-size;
       font-weight: $secondary-font-weight;
-      text-align: $text-center;
+      text-align: $center_text;
       color: $text-colour;
     }
   }
   .service:hover {
     transform: scale(0.9);
-    transition: all 0.5s ease-in-out;
   }
 }
 // responsive services section for laptop
@@ -367,10 +256,18 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-
+// About section styles
+.about_container {
+  .about_title {
+    text-transform: uppercase;
+  }
+  .about_desc {
+    font-size: $secondary-font-size;
+  }
+}
 // style footer section
-.text-center {
-  text-align: $text-center;
+.center_text {
+  text-align: $center_text;
   margin-top: 2rem;
   color: rgb(148, 92, 238);
   font-size: 2rem;
