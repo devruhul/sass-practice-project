@@ -1,3 +1,4 @@
+@use "./variables" as styles;
 // reset css code
 * {
   padding: 0;
@@ -5,7 +6,6 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: "Poppins", sans-serif;
 }
 h1,
 h2,
@@ -23,4 +23,23 @@ input,
 textarea {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+}
+// change select option color
+::selection {
+  background-color: styles.$primary-background-color;
+  color: styles.$secondary-background-color;
+}
+// create custom crollbar
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-track {
+  background: styles.$primary-background-color;
+}
+::-webkit-scrollbar-thumb {
+  background: styles.$tertiary-background-color;
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: styles.$tertiary-background-color;
 }

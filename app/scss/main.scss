@@ -1,5 +1,5 @@
-@use "partials/base";
-@import "partials/variables";
+@forward "partials/base";
+@use "partials/variables" as styles;
 // flex items
 %flex_element {
   display: flex;
@@ -17,12 +17,12 @@ $center_text: center;
 
 // style for body
 body {
-  background-color: $primary-background-color;
-  font-family: $primary-font;
+  background-color: styles.$primary-background-color;
+  font-family: styles.$primary-font;
 }
 // style for container
 .container {
-  max-width: 90%;
+  max-width: 85%;
   margin: 0 auto;
 }
 .showcase {
@@ -30,15 +30,15 @@ body {
 }
 // style for nav
 .navbar {
-  padding: $primary-padding;
+  padding: styles.$primary-padding;
   display: flex;
   align-items: center;
   justify-content: space-between;
   // style for nav logo
   .logo {
-    color: $primary-background-color;
-    font-size: $primary-font-size;
-    font-weight: $primary-font-weight;
+    color: styles.$primary-background-color;
+    font-size: styles.$primary-font-size;
+    font-weight: styles.$primary-font-weight;
   }
   .navbar_end {
     // style for nav menu list
@@ -50,17 +50,17 @@ body {
         margin-right: 2rem;
         // style for nav menu list link
         a {
-          color: $primary-background-color;
-          text-decoration: $primary-text-decoration;
-          font-size: $primary-font-size;
-          font-weight: $secondary-font-weight;
+          color: styles.$primary-background-color;
+          text-decoration: styles.$primary-text-decoration;
+          font-size: styles.$primary-font-size;
+          font-weight: styles.$secondary-font-weight;
           transition: 0.4s ease-in-out;
-          padding: $secondary-padding;
-          border-radius: $primary-border-radius;
+          padding: styles.$secondary-padding;
+          border-radius: styles.$primary-border-radius;
         }
         // style for nav menu list link hover
         a:hover {
-          background-color: $secondary-background-color;
+          background-color: styles.$secondary-background-color;
         }
       }
     }
@@ -86,19 +86,19 @@ body {
 
 // fancy button styles
 .fancy_btn {
-  background-color: $tertiary-background-color;
-  color: $secondary-background-color;
-  padding: $secondary-padding;
-  border: $primary-border;
-  border-radius: $primary-border-radius;
-  text-decoration: $primary-text-decoration;
-  font-size: $primary-font-size;
-  font-weight: $secondary-font-weight;
+  background-color: styles.$tertiary-background-color;
+  color: styles.$secondary-background-color;
+  padding: styles.$secondary-padding;
+  border: styles.$primary-border;
+  border-radius: styles.$primary-border-radius;
+  text-decoration: styles.$primary-text-decoration;
+  font-size: styles.$primary-font-size;
+  font-weight: styles.$secondary-font-weight;
   cursor: pointer;
 }
 .fancy_btn:hover {
-  background-color: $secondary-background-color;
-  color: $tertiary-background-color;
+  background-color: styles.$secondary-background-color;
+  color: styles.$tertiary-background-color;
   animation: fancy_btn 0.5s ease-in-out infinite alternate;
 }
 // fancy button animation
@@ -112,30 +112,37 @@ body {
 }
 // banner section
 .banner_container {
-  background-image: $primary-background-image;
-  background-size: $primary-background-size;
-  background-position: $primary-background-position;
-  background-repeat: $primary-background-repeat;
-  background-attachment: $primary-background-attachment;
-  background-color: $primary-color;
+  background-image: styles.$primary-background-image;
+  background-size: styles.$primary-background-size;
+  background-position: styles.$primary-background-position;
+  background-repeat: styles.$primary-background-repeat;
+  background-attachment: styles.$primary-background-attachment;
+  background-color: styles.$primary-color;
   height: 100vh;
   @extend %flex_element;
   .banner_left {
-    width: 50%;
-    padding: $primary-padding;
-    color: $primary-background-color;
+    width: 55%;
+    color: styles.$primary-background-color;
     @extend %flex_element;
     flex-direction: column;
     gap: 1rem;
     text-align: left;
+    margin: 0 8rem;
+    .left_banner {
+      display: flex;
+      justify-content: flex-start;
+      gap: 2.2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
   }
   .btn_container {
-    @extend %flex_element;
+    display: flex;
     gap: 1rem;
   }
   .banner_right {
-    width: 50%;
-    padding: $primary-padding;
+    width: 93%;
+    padding: styles.$primary-padding;
     img {
       transition: 0.4s ease-in;
       filter: grayscale(100%);
@@ -150,6 +157,7 @@ body {
 @media screen and (max-width: 1024px) {
   .banner_left {
     width: 100%;
+    margin: 0 6rem;
   }
   .banner_right {
     width: 100%;
@@ -165,6 +173,7 @@ body {
     align-items: center;
     .banner_left {
       width: 100%;
+      margin: 0 0;
     }
     .banner_right {
       width: 100%;
@@ -207,13 +216,13 @@ body {
 // services section
 .services_container {
   @extend %grid_element;
-  padding: $primary-padding;
+  padding: styles.$primary-padding;
   margin-top: 2rem;
   .service {
-    background-color: $primary-background-color;
-    padding: $primary-padding;
-    border-radius: $primary-border-radius;
-    box-shadow: $primary-box-shadow;
+    background-color: styles.$primary-background-color;
+    padding: styles.$primary-padding;
+    border-radius: styles.$primary-border-radius;
+    box-shadow: styles.$primary-box-shadow;
     @extend %flex_element;
     flex-direction: column;
     gap: 1rem;
@@ -222,15 +231,15 @@ body {
       font-size: 3rem;
     }
     .service_title {
-      font-size: $primary-font-size;
-      font-weight: $secondary-font-weight;
-      text-transform: $primary-text-transform;
+      font-size: styles.$primary-font-size;
+      font-weight: styles.$secondary-font-weight;
+      text-transform: styles.$primary-text-transform;
     }
     .service_desc {
-      font-size: $secondary-font-size;
-      font-weight: $secondary-font-weight;
+      font-size: styles.$secondary-font-size;
+      font-weight: styles.$secondary-font-weight;
       text-align: $center_text;
-      color: $text-colour;
+      color: styles.$text-colour;
     }
   }
   .service:hover {
@@ -256,13 +265,21 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+// Section paragraph styles
+@mixin sections_para($para_color, $size) {
+  font-size: $size;
+  color: $para_color;
+}
 // About section styles
 .about_container {
   .about_title {
     text-transform: uppercase;
   }
   .about_desc {
-    font-size: $secondary-font-size;
+    @include sections_para(
+      $para_color: styles.$text-colour,
+      $size: styles.$secondary-font-size
+    );
   }
 }
 // style footer section
@@ -271,25 +288,6 @@ body {
   margin-top: 2rem;
   color: rgb(148, 92, 238);
   font-size: 2rem;
-  font-weight: $primary-font-weight;
+  font-weight: styles.$primary-font-weight;
   letter-spacing: 0.4rem;
-}
-// change select option color
-::selection {
-  background-color: $primary-background-color;
-  color: $secondary-background-color;
-}
-// create custom crollbar
-::-webkit-scrollbar {
-  width: 1rem;
-}
-::-webkit-scrollbar-track {
-  background: $primary-background-color;
-}
-::-webkit-scrollbar-thumb {
-  background: $tertiary-background-color;
-  border-radius: 1rem;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: $tertiary-background-color;
 }
