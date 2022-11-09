@@ -1,3 +1,4 @@
+@use "sass:math";
 @forward "partials/base";
 @use "partials/variables" as styles;
 // flex items
@@ -219,7 +220,7 @@ body {
   padding: styles.$primary-padding;
   margin-top: 2rem;
   .service {
-    background-color: styles.$primary-background-color;
+    // background-color: styles.$primary-background-color;
     padding: styles.$primary-padding;
     border-radius: styles.$primary-border-radius;
     box-shadow: styles.$primary-box-shadow;
@@ -302,4 +303,48 @@ body {
   font-size: 2rem;
   font-weight: styles.$primary-font-weight;
   letter-spacing: 0.4rem;
+}
+// Generate class from for loop
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: math.div(100%, 12) * $i;
+  }
+}
+
+// While loop for generating class
+$i: 1;
+@while $i < 13 {
+  .col-#{$i} {
+    width: math.div(100%, 12) * $i;
+  }
+  $i: $i + 1;
+}
+
+// Mixin for generating class
+@mixin col($i) {
+  .col-#{$i} {
+    width: math.div(100%, 12) * $i;
+  }
+}
+
+$colors: (
+  color1: blue,
+  color2: green,
+  color3: yellow,
+);
+
+@each $key, $color in $colors {
+  .#{"" + $color}-card {
+    color: $color;
+  }
+}
+// map over the items
+@each $color in red, green, blue {
+  .#{"" + $color}-text {
+    color: $color;
+  }
+}
+
+#red-text {
+  color: red;
 }
