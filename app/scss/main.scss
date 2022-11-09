@@ -265,6 +265,17 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+@mixin designStyle($size) {
+  @if $size== small {
+    font-size: 15px;
+  } @else if($size== medium) {
+    font-size: 20px;
+  } @else if($size== large) {
+    font-size: 45px;
+  } @else {
+    font-size: 30px;
+  }
+}
 // Section paragraph styles
 @mixin sections_para($para_color, $size) {
   font-size: $size;
@@ -280,6 +291,7 @@ body {
       $para_color: styles.$text-colour,
       $size: styles.$secondary-font-size
     );
+    @include designStyle(medium);
   }
 }
 // style footer section
